@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timefulness</title>
+    <!--To Do link css files-->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Timefulness</h1>
+        <p>Break time reminder app.</p>
+        <button id="edit-schedule">Edit Schedule</button>
+    </header>    
+    <div class="main">
+        <h2>Time until next break</h2>
+        <p>00:00:00</p>
+        <div>
+            <button>start/stop toggle</button>
+            <button>Snooze</button>
+         </div>
+    </div>
+    <div>
+        <h3>"A watched pot never boils"</h3>
+        <button>next tip</button>
+
+    </div>
+    <!-- This is intended to be a popup modal that appears when the edit schedule button is pressed.-->
+    <div id="modal" class="modal-hidden">
+        <h3>Edit Schedule</h3>
+        <form>
+            <label for="shift-duration">How long is your shift?</label>
+            <input id="shift-duration" type="text"><br />
+            <label for="number-of-breaks">How many breaks would you like to take?</label>
+            <input id="number-of-breaks" type="text"><br />
+            <label for="break-duration">How much break time do you have?</label>
+            <input id="break-duration" type="text"><br />
+        </form>
+       <div>
+           <button id="modal-close">Close</button>
+           <button>Save changes</button>
+       </div>    
+   </div>
+    <script src="assets/js/script.js""></script>
+</body>
+</html>
