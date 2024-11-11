@@ -13,17 +13,17 @@
 
 <body>
   <header>
-
     <h1>Timefulness</h1>
+    <input type="checkbox" id="toggle-theme">Toggle Theme</input>
     <p>Break time reminder app.</p>
     <button id="edit-schedule">Edit Schedule</button>
   </header>
   <div class="main">
     <h2>Time until next break</h2>
-    <p>00:00:00</p>
+    <p id="timer-display">00:00:00</p>
     <div>
-      <button>start/stop toggle</button>
-      <button>Snooze</button>
+      <button id="timer-button">Start</button>
+      <button id="reset-button">Reset</button>
     </div>
   </div>
   <div>
@@ -48,6 +48,7 @@
     </div>
   </div>
   <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/timer.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
     crossorigin="anonymous"></script>
