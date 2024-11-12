@@ -12,5 +12,8 @@ close_modal.addEventListener('click', function () {
   modal.classList.add('modal-hidden');
 });
 
-
-
+const toggle_theme = document.querySelector('#toggle-theme');
+toggle_theme.addEventListener('click', function() {
+  const body = document.querySelector('body');
+    body.classList.toggle('dark-theme');
+});
