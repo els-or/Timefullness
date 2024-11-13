@@ -11,8 +11,69 @@
     z-index: 99;
     position: fixed;
     background-color: white;
-    border: 1px solid black;}
+    border: 1px solid black;
+}
 
 main {
     z-index: 1;
+}
+
+.theme-toggle {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.theme-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 30px;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "☀️";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: .4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:checked+.slider:before {
+    transform: translateX(30px);
+    content: "🌙";
+}
+
+/* Dark mode styles */
+[data-bs-theme="dark"] {
+    background-color: #252227;
+    color: #fff;
+}
+
+/* Animation for content */
+.content {
+    transition: all 0.3s ease-in-out;
 }
