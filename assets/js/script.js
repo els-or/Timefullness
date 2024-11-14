@@ -5,9 +5,8 @@ edit_schedule.addEventListener('click', function () {
   modal.classList.add('modal-visible');
 });
 
-const close_modal = document.querySelector('#modal-close');
-close_modal.addEventListener('click', function () {
+function closeModal() {
   const modal = document.querySelector('#modal');
   modal.classList.remove('modal-visible');
   modal.classList.add('modal-hidden');
-});
+}
