@@ -1,13 +1,16 @@
+// Select timer display, timer start/pause button, and reset button
 const display = document.querySelector('#timer-display');
 const timerButton = document.querySelector('#timer-button');
 const resetButton  = document.querySelector('#reset-button');
 
-const timerList = calculateTimers();
+// Generate timer list initial state on page load
+let timerList = calculateTimers();
 let timerIndex = 0;
 let timerState = "stopped";
-
 let intervalId = createTimer(timerList[timerIndex].duration, display);
 
+
+// Manage state/pause button text and timer state
 function timerControl() {
     if (timerButton.textContent === 'Start') {
         timerButton.textContent = 'Pause';
@@ -18,6 +21,8 @@ function timerControl() {
     }
 }
 
+// Manage timer using setInterval to update every second.  
+// This function displays the status of the timer, counts dowwn every second, and moves to the next timer when the current timer reaches 0.
 function createTimer(duration, display) {
     let timer = duration;
     const intervalId = setInterval(function () {
@@ -31,16 +36,27 @@ function createTimer(duration, display) {
 
         display.textContent = hours + ":" + minutes + ":" + seconds;
 
+        statusDisplay = document.createElement('p');
+        let message = "Timer: " + (timerIndex + 1) + "/" + (timerList.length) + " - ";
+        if (timerList[timerIndex].type === "work") {
+            message += "Work Session";
+        } else if (timerList[timerIndex].type === "break") {
+            message += "Break Time";
+        }
+        statusDisplay.textContent = message;
+        display.appendChild(statusDisplay);
+
         if (timerState === "running") {
             timer--;
         }
 
         if (timer < 0) {
-            // TODO: Add check for end of shift
-            // TODO: Maybe call reset function instead
-            clearInterval(intervalId);
-            display.textContent = "Break Time!"; // TODO: Maybe make this a modal
             timerIndex++;
+            if (timerIndex >= timerList.length) {
+                endOfDay();
+                return;
+            }
+            resetTimer();
             timerControl();
         }
     }, 1000);
@@ -48,15 +64,7 @@ function createTimer(duration, display) {
     return intervalId;
 }
 
-function loadTimerSchedule() {
-    // TODO: Load schedule from local storage
-    return {
-        shift_duration: 8,
-        number_of_breaks: 2,
-        break_duration: 15
-    };
-}
-
+// Calculate the timers based on the schedule and return an array of objects with the duration and type of each timer.
 function calculateTimers() {
     const schedule = loadTimerSchedule();
     const shiftDuration = schedule.shift_duration * 3600;
@@ -80,13 +88,39 @@ function calculateTimers() {
     return timerList;
 }
 
-resetButton.addEventListener('click', function() {
-    // TODO: Move to separate function
+// Reset the current time to the beginning of the current timer.
+function resetTimer() {
     clearInterval(intervalId);
     timerState = "stopped";
-    timerIndex++; // This is here for testing. Remove this line before submitting.
     intervalId = createTimer(timerList[timerIndex].duration, display);
     timerButton.textContent = 'Start';
+}
+
+// Reset the schedule back to the beginning.
+function resetSchedule() {
+    timerIndex = 0;
+    resetTimer();
+}
+
+// Update display and clear timer interval when the work day is over.
+function endOfDay() {
+    display.textContent ="End of work day! Yay!";
+    clearInterval(intervalId);
+}
+
+
+// This is the correct event listener for the reset button.
+// resetButton.addEventListener('click', resetTimer);
+
+// This is a special event listener for the reset button.  For testing, it increments the timerIndex.
+resetButton.addEventListener('click', function(){
+    timerIndex++;
+    if (timerIndex >= timerList.length) {
+        endOfDay();
+        return;
+    }
+    resetTimer();
 });
 
+// This is the event listener for the timer button.
 timerButton.addEventListener('click', timerControl);
