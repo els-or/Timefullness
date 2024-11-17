@@ -39,21 +39,19 @@ getMotivationalQuote();
 
 // break quotes
 const breakQuotes = [
-  "Take a deep breath and relax.",
-  "Breaks help boost productivity. Enjoy this moment.",
+  "Time to take a deep breath and relax.",
+  "Enjoy this moment, you've earned it.",
   "Stretch, hydrate, and recharge!",
-  "This pause is your reward. Relish it!",
-  "A short break can lead to big ideas.",
+  "A boost in productivity leads to big ideas.",
+  "Time to recharge to go to distance later.",
+  "Rest now, innovate later.",
+  "Step away, your creativity needs you.",
+  "Return with focus.",
   "Pause, breathe, and reset.",
-  "Rest now, conquer later.",
-  "Take a moment to breathe and refuel your mind.",
-  "A break is an investment in your next big idea.",
-  "Recharge your energy and come back stronger.",
-  "Small breaks lead to big results.",
-  "A moment of rest can spark your creativity.",
-  "Step away, clear your mind, and return with focus.",
-  "Even a brief pause can reset your productivity.",
-  "Taking a break is the best way to maintain your flow."
+  "Take this time to invest in clarity.",
+  "This time is crutial to success.",
+  "Congratulations on building resilience!",
+  "Short rests prepare for long strides."
 ];
 
 let breakQuoteStatus = false;
