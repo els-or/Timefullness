@@ -1,4 +1,4 @@
-git# Timefullness
+# Timefullness
 
 Timefullness is a project aimed at helping remote workers remember to take their breaks. Timefullness has a customizable schedule along with tips to make your break more successful.
 
