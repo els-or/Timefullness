@@ -21,6 +21,15 @@ function timerControl() {
     }
 }
 
+// Reset the state of the motivational quote status after session
+function resetMotivQuoteStatus() {
+    motivQuoteStatus = false;
+}
+// Reset the state of the break quote status after session
+function resetBreakQuoteStatus() {
+    breakQuoteStatus = false;
+}
+
 // Manage timer using setInterval to update every second.  
 // This function displays the status of the timer, counts dowwn every second, and moves to the next timer when the current timer reaches 0.
 function createTimer(duration, display) {
@@ -36,12 +45,22 @@ function createTimer(duration, display) {
 
         display.textContent = hours + ":" + minutes + ":" + seconds;
 
+        // Change <h2> tag based on session status
+        const sessionStatus = document.querySelector('h2');
+        if (timerList[timerIndex].type === "work") {
+            sessionStatus.textContent = "Time until next break";
+        } else if (timerList[timerIndex].type === "break") {
+            sessionStatus.textContent = "Break Time!";
+        }
+
         statusDisplay = document.createElement('p');
         let message = "Timer: " + (timerIndex + 1) + "/" + (timerList.length) + " - ";
         if (timerList[timerIndex].type === "work") {
             message += "Work Session";
+            getMotivationalQuote();
         } else if (timerList[timerIndex].type === "break") {
             message += "Break Time";
+            getBreakQuote();
         }
         statusDisplay.textContent = message;
         display.appendChild(statusDisplay);
@@ -57,12 +76,20 @@ function createTimer(duration, display) {
                 return;
             }
             resetTimer();
+            if (timerList[timerIndex].type === "break") {
+                resetMotivQuoteStatus();
+            }
+            if (timerList[timerIndex].type === "work") {
+                resetBreakQuoteStatus();
+            }
             timerControl();
         }
     }, 1000);
 
     return intervalId;
 }
+
+
 
 // Calculate the timers based on the schedule and return an array of objects with the duration and type of each timer.
 function calculateTimers() {
@@ -99,6 +126,7 @@ function resetTimer() {
 // Reset the schedule back to the beginning.
 function resetSchedule() {
     timerIndex = 0;
+    timerList = calculateTimers();
     resetTimer();
 }
 
@@ -120,6 +148,8 @@ resetButton.addEventListener('click', function () {
         return;
     }
     resetTimer();
+    resetMotivQuoteStatus();
+    resetBreakQuoteStatus();
 });
 
 // This is the event listener for the timer button.
