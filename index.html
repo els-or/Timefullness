@@ -4,59 +4,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Timefulness</title>
-  <!--To Do link css files-->
+  <title>Timefullness</title>
   <link rel="stylesheet" type="text/css"
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="./assets/css/styles.css" />
 </head>
-<header>
-  <h1>Timefulness</h1>
-  <p>Break time reminder app.</p>
-  <nav
-    class="d-flex flex-column position-absolute top-0 start-50 translate-middle-x sticky shadow p-3 mb-5 rounded navbar bg-primary-tertiary">
-    <div class="container-fluid">
-    </div>
-    <div class="container py-4">
-      <label class="theme-toggle">
+
+<body>
+  <div class="bg-container min-vh-100 d-flex flex-column">
+    <header class="header frosted-glass d-flex justify-content-between my-3 mx-auto w-100 px-3 py-1">
+      <div class="align-items-center">
+        <h1>Timefullness</h1>
+        <h5>break time reminder app.</h5>
+      </div>
+      <label class="theme-toggle align-self-center">
         <input type="checkbox" id="themeToggle">
         <span class="slider"></span>
       </label>
-  </nav>
-</header>
-
-<body class="p-5 mb-2 d-flex flex-column justify-content-center bg-image img-fluid" style="background-image: url(https://wallpaperaccess.com/full/1533191.jpg);
-     height: 100vh">
-  <div class="main">
-    <button id="edit-schedule" type="button" class="btn btn-secondary">Set Schedule</button>
-    <h2>Time until next break</h2>
-    <p id="timer-display">00:00:00</p>
-    <div>
-      <button id="timer-button">Start</button>
-      <button id="reset-button">Reset</button>
+    </header>
+    <div class="container flex-grow-1 d-flex flex-column">
+      <div class="frosted-glass break-box bounding-box mx-5 my-auto w-25">
+        <button id="edit-schedule" class="btn btn-secondary">
+          Set Schedule
+        </button>
+        <h2 class="fs-4 pt-3">Time until next break</h2>
+        <p id="timer-display" class="fw-bold fs-3" 00:00:00>00:00:00</p>
+        <button id="timer-button" class="btn btn-primary">
+          Start
+        </button>
+        <button id="reset-button" class="btn btn-secondary">
+          Reset
+        </button>
+      </div>
+      <div class="frosted-glass bounding-box mt-auto mb-4 mx-auto text-center p-3">
+        <h5 id="motivational-quote" class="text-wrap text-center pb-3">
+          "A watched pot, never boils"
+        </h5>
+        <button id="change-quote" class="btn btn-secondary w-25">
+          Next Tip
+        </button>
+      </div>
     </div>
   </div>
-  <div>
-    <h3 id="motivational-quote">"A watched pot never boils"</h3>
-    <button id="change-quote">next tip</button>
-
-  </div>
-  <!-- This is intended to be a popup modal that appears when the edit schedule button is pressed.-->
-  <div id="modal" class="modal-hidden modal">
-    <h3>Edit Schedule</h3>
+  <div id="modal" class="modal frosted-glass modal-hidden align-self-center">
+    <h3 class="d-flex justify-content-center modal-header fs-1 py-4">Edit Schedule</h3>
     <form>
-      <label for="shift-duration">How long is your shift in hours?</label>
-      <input id="shift-duration" type="text" placeholder="8"><br />
-      <label for="number-of-breaks">How many breaks would you like to take?</label>
-      <input id="number-of-breaks" type="text" placeholder="2"><br />
-      <label for="break-duration">How long are your breaks in minutes?</label>
-      <input id="break-duration" type="text" placeholder="15"><br />
+      <div class="input-group fs-4 ps-3 py-3 pe-5">
+        <label for="shift-duration">How long is your shift in hours?</label>
+        <input id="shift-duration" class="form-control ms-2 me-auto rounded" type="text" placeholder="8"><br />
+      </div>
+      <div class="input-group fs-4 px-3 py-3">
+        <label for="number-of-breaks">How many breaks would you like to take?</label>
+        <input id="number-of-breaks" class="form-control ms-2 rounded" type="text" placeholder="2"><br />
+      </div>
+      <div class="input-group fs-4 px-3 py-3">
+        <label for="break-duration">How long are your breaks in minutes?</label>
+        <input id="break-duration" class="form-control ms-2 me-1 rounded" type="text" placeholder="15"><br />
+      </div>
     </form>
     <div>
-      <button id="save-schedule">Confirm</button>
+      <button id="save-schedule" class="btn btn-warning px-1 ms-3">Confirm</button>
     </div>
   </div>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="./assets/js/button.js"></script>
   <script src="./assets/js/script.js"></script>
@@ -69,9 +78,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
     integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
     crossorigin="anonymous"></script>
-  <footer>
-
-  </footer>
 </body>
 
 </html>

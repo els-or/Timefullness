@@ -1,7 +1,7 @@
 // Select timer display, timer start/pause button, and reset button
 const display = document.querySelector('#timer-display');
 const timerButton = document.querySelector('#timer-button');
-const resetButton  = document.querySelector('#reset-button');
+const resetButton = document.querySelector('#reset-button');
 
 // Generate timer list initial state on page load
 let timerList = calculateTimers();
@@ -79,10 +79,10 @@ function calculateTimers() {
     console.log("Work Session Duration: " + workSessionDuration / 60);
 
     let timerList = [];
-    timerList.push({duration: workSessionDuration, type: "work"});
+    timerList.push({ duration: workSessionDuration, type: "work" });
     for (let i = 0; i < schedule.number_of_breaks; i++) {
-        timerList.push({duration: schedule.break_duration * 60, type: "break"});
-        timerList.push({duration: workSessionDuration, type: "work"});
+        timerList.push({ duration: schedule.break_duration * 60, type: "break" });
+        timerList.push({ duration: workSessionDuration, type: "work" });
     }
     console.log(timerList);
     return timerList;
@@ -104,7 +104,7 @@ function resetSchedule() {
 
 // Update display and clear timer interval when the work day is over.
 function endOfDay() {
-    display.textContent ="End of work day! Yay!";
+    display.textContent = "End of work day! Yay!";
     clearInterval(intervalId);
 }
 
@@ -113,7 +113,7 @@ function endOfDay() {
 // resetButton.addEventListener('click', resetTimer);
 
 // This is a special event listener for the reset button.  For testing, it increments the timerIndex.
-resetButton.addEventListener('click', function(){
+resetButton.addEventListener('click', function () {
     timerIndex++;
     if (timerIndex >= timerList.length) {
         endOfDay();

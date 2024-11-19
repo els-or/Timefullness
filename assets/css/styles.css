@@ -4,12 +4,13 @@
 
 .modal-visible {
     display: block;
-    top: 30px;
-    left: 5%;
-    height: 500px;
-    width: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
+    height: 375px;
+    width: 525px;
     z-index: 99;
-    position: fixed;
     background-color: white;
     border: 1px solid black;
 }
@@ -37,7 +38,7 @@ main {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #ebddb1;
     border-radius: 30px;
     transition: .4s;
 }
@@ -55,17 +56,18 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
+    font-size: 13px;
 }
 
 input:checked+.slider {
-    background-color: #2196F3;
+    background-color: #002544;
 }
 
 input:checked+.slider:before {
     transform: translateX(30px);
     content: "🌙";
 }
+
 
 /* Dark mode styles */
 [data-bs-theme="dark"] {
@@ -76,4 +78,50 @@ input:checked+.slider:before {
 /* Animation for content */
 .content {
     transition: all 0.3s ease-in-out;
+}
+
+.bg-cover {
+    background-image: url('https://rare-gallery.com/mocahbig/427407-photography-mountains-snow-clouds-nature-landscape.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translateY(-10%);
+}
+
+.frosted-glass {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.frosted-glass-dark {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.toggle-styling {
+    top: 40px;
+    right: 50px;
+}
+
+/* The Sin Bin */
+
+.bg-container {
+    background-image: url('https://rare-gallery.com/mocahbig/427407-photography-mountains-snow-clouds-nature-landscape.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.break-box {
+    padding: 1.5rem 1rem 1.5rem 1rem;
+}
+
+.bounding-box {
+    max-width: 480px;
+    min-width: 480px;
 }
