@@ -126,6 +126,7 @@ function resetTimer() {
 // Reset the schedule back to the beginning.
 function resetSchedule() {
     timerIndex = 0;
+    timerList = calculateTimers();
     resetTimer();
 }
 
